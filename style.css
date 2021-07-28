@@ -1,0 +1,153 @@
+body {
+       background-image: url(media/container_bg.png);
+       overflow-x: hidden;
+       width: 100vw;
+       font-family: 'Public Sans', sans-serif;
+       box-sizing: border-box;
+
+}
+
+#logo_section {
+       text-align: center;
+       margin-bottom: 30px;
+}
+
+#search_section{
+       display: flex;
+       justify-content: center;
+       text-align: center;
+       margin-bottom: 50px;
+       margin-top: 50px;
+}
+
+.search_field{
+       width: 300px;
+       height: 30px;
+}
+
+.search_btn{
+       all: unset;
+       background-color: #4592c4;
+       width: 40px;
+       margin-left: 5px;
+}
+.pokemon_logo {
+       width: 600px;
+       animation: moveInLeft 1s ease-out;
+}
+
+.pokeball {
+       width: 70px;
+       display: block;
+       margin: -100px auto 0 auto;
+       animation: moveInBottom .5s ease-out .75s;
+       animation-fill-mode: backwards;
+}
+
+#cards_section {
+       display: flex;
+       justify-content: center;
+}
+
+#poke_img{
+       width: 200px;
+       height: 200px;
+}
+
+.poke_cards {
+       display: flex;
+       flex-wrap: wrap;
+       gap: 10px;
+       width: 840px;
+}
+
+.card {
+       background: #ffff;
+       border-radius: 10px;
+       overflow: hidden;
+       transition: all opacity 0.3s ease-in-out;
+}
+
+.card_head {
+       border-radius: 10px;
+       background: #ebebeb;
+       width: 200px;
+       height: 200px;
+       padding: 0px;
+}
+
+
+.card_body {
+       padding: 10px;
+}
+
+.card:hover {
+       margin-top: -5px;
+       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.pill { 
+       display: inline; 
+       border-radius: 3px;
+       width: 30px;
+       height: 30px;
+       padding: 5px;
+       font-size: 15px;
+       background-color: #4592c4;
+       color: #ffff;
+       
+}
+
+span {
+       color: #919191;
+       font-size: 80%;
+}
+
+h4{
+       margin-bottom: 5px;
+}
+
+@media (max-width: 600px)  {
+       #logo_section{
+              width: 100px;
+       }
+
+       .pokeball {
+              width: 40px;
+              margin-top: -50px;
+              
+       }
+
+       .poke_cards {
+              width: 240px;
+       }
+}
+
+
+@keyframes moveInLeft {
+       0% {
+              opacity: 0;
+              transform: translateX(-100px);
+       }
+
+       80% {
+              transform: translateX(10px);
+       }
+
+       100% {
+              opacity: 1;
+              transform: translate(0);
+       }
+}
+
+@keyframes moveInBottom {
+       0% {
+              opacity: 0;
+              transform: translateY(30px);
+       }
+
+       100% {
+              opacity: 1;
+              transform: translate(0);
+       }
+}
