@@ -1,11 +1,14 @@
-let pokemonsNum = 1;
+let pokemonsNum = 20;
 
 let pokemonName = document.querySelector('.search_field');
-let searchBtn = document.querySelector('.search_btn ');
+let searchBtn = document.querySelector('.search_btn');
 
 searchBtn.addEventListener('click', async ()=>{
   try {
-      const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName.value.toLowerCase()}`);
+      const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${
+        typeof pokemonName === 'string' ?
+        pokemonName.value : pokemonName.value.toLowerCase() 
+      }`);
       const pokemon = await res.json(); 
       document.querySelector('.poke_cards').innerHTML = "";
       createPokemonCard(pokemon)
@@ -15,12 +18,11 @@ searchBtn.addEventListener('click', async ()=>{
   }
 });
 
-while(pokemonsNum <= 20){
-  fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonsNum}`)
+for(let i = 1; i <= pokemonsNum; i++){
+  fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
         .then((data) => data.json())
         .then((data) => createPokemonCard(data))
         .catch((error) => console.log(error))
-  pokemonsNum++;
 }
 
 function createPokemonCard(pokemon){
@@ -43,4 +45,3 @@ function createPokemonCard(pokemon){
          </div>`;
     document.querySelector('.poke_cards').appendChild(cardElement);
 }
-
